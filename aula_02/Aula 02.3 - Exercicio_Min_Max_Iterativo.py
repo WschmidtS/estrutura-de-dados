@@ -4,13 +4,19 @@ from time import time
 
 
 def meu_min_max(iteravel):
+    """
+    Tempo de execução: O(n)
+    Em Memória: O(1)
+    :param iteravel:
+    :return:
+    """
+
     numero_minimo = inf
     numero_maximo = -inf
 
     for numero in iteravel:
         if numero > numero_maximo:
             numero_maximo = numero
-    for numero in iteravel:
         if numero < numero_minimo:
             numero_minimo = numero
     return numero_minimo, numero_maximo
