@@ -1,16 +1,6 @@
 import unittest
 
-
-class ListaVaziaErro(Exception):
-    pass
-
-
-class Noh():
-    pass
-
-
-class ListaDuplamenteLigada():
-    pass
+from aula_03.lista_duplamente_ligada.lista_duplamente_ligada import ListaVaziaErro, Noh, ListaDuplamenteLigada
 
 
 class NohTestes(unittest.TestCase):
