@@ -40,6 +40,7 @@ class ListaTestes(unittest.TestCase):
         self.assertIsNone(lista.primeiro)
         self.assertIsNone(lista.ultimo)
 
+
     def test_adicionar_primeiro(self):
         lista = ListaDuplamenteLigada()
         lista.adicionar(0)
@@ -64,7 +65,7 @@ class ListaTestes(unittest.TestCase):
         self.assertIsNone(primeiro.esquerdo)
         self.assertIsNone(ultimo.direito)
 
-    def test_adicionar_terceiro(self):
+    def test_adcionar_terceiro(self):
         lista = ListaDuplamenteLigada()
         lista.adicionar(0)
         lista.adicionar(1)
@@ -109,7 +110,7 @@ class ListaTestes(unittest.TestCase):
         self.assertIsNone(primeiro.esquerdo)
         self.assertIsNone(ultimo.direito)
 
-    def test_adicionar_terceiro(self):
+    def test_adicionar_terceiro_esquerda(self):
         lista = ListaDuplamenteLigada()
         lista.adicionar_a_esquerda(0)
         lista.adicionar_a_esquerda(1)
