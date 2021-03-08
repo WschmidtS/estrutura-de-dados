@@ -43,11 +43,11 @@ class ListaDuplamenteLigada():
 
         elif self.tam != 0:
             noh = Noh(valor)
-            self.ultimo = noh
             ultimo_noh = self._noh_inicial
             while ultimo_noh.direito is not None:
                 ultimo_noh = ultimo_noh.direito
             ultimo_noh.direito = noh
+            self.ultimo = ultimo_noh.direito
 
             for indice_atual, noh_atual in enumerate(self._noh_inicial, start=1):
                 if indice_atual == self.tam:
