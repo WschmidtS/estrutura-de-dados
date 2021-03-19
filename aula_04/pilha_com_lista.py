@@ -2,7 +2,28 @@ import unittest
 
 
 class Pilha:
-    pass
+    def __init__(self):
+        self._pilha = []
+
+    @property
+    def esta_vazia(self):
+        return len(self._pilha) == 0
+
+    def topo(self):
+        try:
+            return self._pilha[-1]
+        except:
+            raise PilhaVaziaExcecao('Lista Vazia')
+
+    def empilhar(self, objeto):
+        self._pilha.append(objeto)
+
+    def desempilhar(self):
+        try:
+            return self._pilha.pop()
+        except:
+            raise PilhaVaziaExcecao('Lista Vazia')
+
 
 class PilhaVaziaExcecao(Exception):
     pass
