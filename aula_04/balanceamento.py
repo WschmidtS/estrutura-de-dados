@@ -20,7 +20,51 @@ def esta_balanceada(expressao):
     :param expressao: string com expressao a ser balanceada
     :return: boleano verdadeiro se expressao está balanceada e falso caso contrário
     """
-    pass
+
+    if len(expressao) == 0:
+        return True
+    else:
+        elementos = []
+        abre_parenteses = 0
+        fecha_parenteses = 0
+        abre_colchetes = 0
+        fecha_colchetes = 0
+        abre_chaves = 0
+        fecha_chaves = 0
+
+        for elemento in expressao:
+            elementos.append(elemento)
+            if elemento == '(':
+                abre_parenteses += 1
+            if elemento == '[':
+                abre_colchetes += 1
+            if elemento == '{':
+                abre_chaves += 1
+            if elemento == ')':
+                fecha_parenteses += 1
+            if elemento == ']':
+                fecha_colchetes += 1
+            if elemento == '}':
+                fecha_chaves += 1
+
+        if abre_colchetes != fecha_colchetes or abre_chaves != fecha_chaves or abre_parenteses != fecha_parenteses:
+            return False
+
+        abre = abre_chaves + abre_colchetes + abre_parenteses
+        for i in elementos[:-1]:
+            while abre >= 1:
+                abre -= 1
+                if i == ')':
+                    return False
+                if i == ']':
+                    return False
+                if i == '}':
+                    return False
+
+        if abre_colchetes == fecha_colchetes and abre_chaves == fecha_chaves and abre_parenteses == fecha_parenteses:
+            return True
+
+        return elementos
 
 
 class BalancearTestes(unittest.TestCase):
@@ -36,7 +80,7 @@ class BalancearTestes(unittest.TestCase):
     def test_colchetes(self):
         self.assertTrue(esta_balanceada('[]'))
 
-    def test_todos_caracteres(self): #
+    def test_todos_caracteres(self):  #
         self.assertTrue(esta_balanceada('({[]})'))
         self.assertTrue(esta_balanceada('[({})]'))
         self.assertTrue(esta_balanceada('{[()]}'))
